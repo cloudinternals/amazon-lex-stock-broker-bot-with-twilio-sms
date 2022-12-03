@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Alphabet",
+    "price": 96.00
+  },
+  {
+    "name": "Apple",
+    "price": 144.00
+  },
+  {
+    "name": "Microsoft",
+    "price": 241.00
+  },
+  {
+    "name": "Tesla",
+    "price": 182.00
+  },
+  {
+    "name": "Twilio",
+    "price": 46.00
+  }
+]
