@@ -28,7 +28,7 @@ Console.WriteLine(userPortfolio);
 Console.WriteLine("--------------------------------------");
 Console.WriteLine($"Checking price for Apple");
 var applePrice = await stockMarketService.GetStockPrice("apple");
-Console.WriteLine(applePrice);
+Console.WriteLine($"${applePrice.ToString("N2")}");
 
 Console.WriteLine("--------------------------------------");
 Console.WriteLine($"Buy 1.2 Apple stocks");
