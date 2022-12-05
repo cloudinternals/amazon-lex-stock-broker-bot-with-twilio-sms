@@ -12,5 +12,7 @@
   "function-runtime": "dotnet6",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "StockBrokerBot.ChatbotLambda::StockBrokerBot.ChatbotLambda.Function::FunctionHandler"
+  "function-handler": "StockBrokerBot.ChatbotLambda::StockBrokerBot.ChatbotLambda.Function::FunctionHandler",
+  "function-name": "StockBrokerBot",
+  "function-role": "stockbrokerbot-lambda-role"
 }
