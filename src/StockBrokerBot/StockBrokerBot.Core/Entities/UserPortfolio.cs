@@ -1,9 +1,12 @@
 using System.Text;
+using Amazon.DynamoDBv2.DataModel;
 
 namespace StockBrokerBot.Core.Entities;
 
+[DynamoDBTable("user-portfolio")]
 public class UserPortfolio
 {
+    [DynamoDBHashKey]
     public string UserId { get; set; }
     public decimal AvailableCash { get; set; }
     public List<StockPortfolioItem> StockPortfolio { get; set; } = new List<StockPortfolioItem>();

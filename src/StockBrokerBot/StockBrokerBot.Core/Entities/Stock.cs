@@ -1,7 +1,11 @@
+using Amazon.DynamoDBv2.DataModel;
+
 namespace StockBrokerBot.Core.Entities;
 
+[DynamoDBTable("stock-prices")]
 public class Stock
 {
-    public string Name { get; set; }
+    [DynamoDBHashKey]
+    public string StockName { get; set; }
     public decimal Price { get; set; }
 }
