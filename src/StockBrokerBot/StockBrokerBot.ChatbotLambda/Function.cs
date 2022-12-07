@@ -4,15 +4,15 @@ using StockBrokerBot.ChatbotLambda.IntentProcessors;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
-
+ 
 namespace StockBrokerBot.ChatbotLambda;
-
+ 
 public class Function
 {
     public async Task<LexV2Response> FunctionHandler(LexV2Event lexEvent, ILambdaContext context)
     {
         IIntentProcessor process;
-        
+
         switch (lexEvent.SessionState.Intent.Name)
         {
             case "CheckStockPrice":

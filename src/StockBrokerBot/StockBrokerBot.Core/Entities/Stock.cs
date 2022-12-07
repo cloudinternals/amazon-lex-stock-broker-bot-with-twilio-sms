@@ -6,6 +6,6 @@ namespace StockBrokerBot.Core.Entities;
 public class Stock
 {
     [DynamoDBHashKey]
-    public string StockName { get; set; }
+    public string Name { get; set; }
     public decimal Price { get; set; }
 }
