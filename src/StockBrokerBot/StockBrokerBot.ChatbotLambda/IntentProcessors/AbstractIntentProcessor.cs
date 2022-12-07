@@ -2,7 +2,7 @@ using Amazon.Lambda.Core;
 using Amazon.Lambda.LexV2Events;
 
 namespace StockBrokerBot.ChatbotLambda.IntentProcessors;
- 
+
 public abstract class AbstractIntentProcessor : IIntentProcessor
 {
     internal const string MESSAGE_CONTENT_TYPE = "PlainText";

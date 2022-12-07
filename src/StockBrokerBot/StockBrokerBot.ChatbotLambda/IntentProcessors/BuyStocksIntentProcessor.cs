@@ -15,7 +15,7 @@ public class BuyStocksIntentProcessor : AbstractIntentProcessor
         
         var userId = lexEvent.SessionId;
         var userPortfolioService = new PortfolioService(new FluctuatingStockMarketService(new StockMarketDynamoDBDataProvider()), new PortfolioDynamoDBDataProvider());
- 
+        
         try
         {
             var updatedPortfolio = await userPortfolioService.BuyStocks(userId, requestedStockName, numberOfShares);
