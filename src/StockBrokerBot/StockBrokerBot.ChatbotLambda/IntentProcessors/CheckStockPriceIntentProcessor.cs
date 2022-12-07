@@ -12,7 +12,7 @@ public class CheckStockPriceIntentProcessor : AbstractIntentProcessor
         var slots = lexEvent.SessionState.Intent.Slots;
         var requestedStockName = slots["stockName"].Value.InterpretedValue;
 
-        var stockMarketService = new StockMarketService(new StockMarketDynamoDBDataProvider());
+        var stockMarketService = new FluctuatingStockMarketService(new StockMarketDynamoDBDataProvider());
         
         var price = await stockMarketService.GetStockPrice(requestedStockName);
         var responseMessage = $"Current price of {requestedStockName} is ${price.ToString("N2")}";
