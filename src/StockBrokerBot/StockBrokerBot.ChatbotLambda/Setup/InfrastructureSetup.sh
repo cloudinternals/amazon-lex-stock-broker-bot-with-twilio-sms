@@ -6,6 +6,8 @@ aws dynamodb create-table \
         AttributeName=UserId,AttributeType=S \
     --key-schema \
         AttributeName=UserId,KeyType=HASH \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5 \
     --table-class STANDARD
   
 aws dynamodb put-item \
@@ -19,6 +21,8 @@ aws dynamodb create-table \
          AttributeName=Name,AttributeType=S \
      --key-schema \
          AttributeName=Name,KeyType=HASH \
+     --provisioned-throughput \
+         ReadCapacityUnits=5,WriteCapacityUnits=5 \
      --table-class STANDARD
      
 aws dynamodb put-item --table-name stock-prices --item '{"Name": {"S": "Apple"}, "Price": {"N": "144.00"} }'
