@@ -18,7 +18,7 @@ public class StockMarketJsonDataProvider : IStockMarketDataProvider
     public async Task<decimal> GetStockPrice(string name)
     {
         var stock = _stocks.Single(s =>
-            string.Compare(s.StockName, name, StringComparison.InvariantCultureIgnoreCase) == 0);
+            string.Compare(s.Name, name, StringComparison.InvariantCultureIgnoreCase) == 0);
         return stock.Price;
     }
 }
