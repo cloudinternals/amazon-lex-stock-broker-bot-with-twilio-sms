@@ -1,7 +1,7 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.LexV2Events;
 using StockBrokerBot.ChatbotLambda.IntentProcessors;
- 
+
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
  
