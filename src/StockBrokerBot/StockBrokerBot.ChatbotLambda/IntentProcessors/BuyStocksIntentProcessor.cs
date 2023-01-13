@@ -15,7 +15,7 @@ public class BuyStocksIntentProcessor : AbstractIntentProcessor
         
         var userId = lexEvent.SessionId;
         var userPortfolioService = new PortfolioService(new FluctuatingStockMarketService(new StockMarketDynamoDBDataProvider()), new PortfolioDynamoDBDataProvider());
-        
+ 
         try
         {
             var updatedPortfolio = await userPortfolioService.BuyStocks(userId, requestedStockName, numberOfShares);
@@ -23,7 +23,7 @@ public class BuyStocksIntentProcessor : AbstractIntentProcessor
             return Close(
                 lexEvent.SessionState.Intent.Name,
                 lexEvent.SessionState.SessionAttributes,
-                INTENT_STATE_FULFILLED,
+                IntentStateFulfilled,
                 responseMessage
             );
         }
@@ -33,7 +33,7 @@ public class BuyStocksIntentProcessor : AbstractIntentProcessor
             return Close(
                 lexEvent.SessionState.Intent.Name,
                 lexEvent.SessionState.SessionAttributes,
-                INTENT_STATE_FAILED,
+                IntentStateFailed,
                 responseMessage
             );
         }

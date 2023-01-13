@@ -11,25 +11,14 @@ public class Function
 {
     public async Task<LexV2Response> FunctionHandler(LexV2Event lexEvent, ILambdaContext context)
     {
-        IIntentProcessor process;
-
-        switch (lexEvent.SessionState.Intent.Name)
+        AbstractIntentProcessor process = lexEvent.SessionState.Intent.Name switch
         {
-            case "CheckStockPrice":
-                process = new CheckStockPriceIntentProcessor();
-                break;
-            case "GetPortfolio":
-                process = new GetPortfolioIntentProcessor();
-                break;
-            case "BuyStocks":
-                process = new BuyStocksIntentProcessor();
-                break;
-            case "SellStocks":
-                process = new SellStocksIntentProcessor();
-                break;
-            default:
-                throw new Exception($"Intent with name {lexEvent.SessionState.Intent.Name} is not supported");
-        }
+            "CheckStockPrice" => new CheckStockPriceIntentProcessor(),
+            "GetPortfolio" => new GetPortfolioIntentProcessor(),
+            "BuyStocks" => new BuyStocksIntentProcessor(),
+            "SellStocks" => new SellStocksIntentProcessor(),
+            _ => throw new Exception($"Intent with name {lexEvent.SessionState.Intent.Name} is not supported")
+        };
         
         return await process.Process(lexEvent, context);
     }

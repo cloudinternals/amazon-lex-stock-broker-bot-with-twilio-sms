@@ -1,14 +1,14 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.LexV2Events;
-
+ 
 namespace StockBrokerBot.ChatbotLambda.IntentProcessors;
-
-public abstract class AbstractIntentProcessor : IIntentProcessor
+ 
+public abstract class AbstractIntentProcessor
 {
-    internal const string MESSAGE_CONTENT_TYPE = "PlainText";
-    internal const string INTENT_STATE_FULFILLED = "Fulfilled";
-    internal const string INTENT_STATE_FAILED = "Failed";
-    internal const string DIALOG_ACTION_CLOSE = "Close";
+    internal const string MessageContentType = "PlainText";
+    internal const string IntentStateFulfilled = "Fulfilled";
+    internal const string IntentStateFailed = "Failed";
+    internal const string DialogActionClose = "Close";
     
     public abstract Task<LexV2Response> Process(LexV2Event lexEvent, ILambdaContext context);
     
@@ -20,13 +20,13 @@ public abstract class AbstractIntentProcessor : IIntentProcessor
             {
                 Intent = new LexV2Intent { Name = intentName, State = fulfillmentState },
                 SessionAttributes = sessionAttributes,
-                DialogAction = new LexV2DialogAction  { Type = DIALOG_ACTION_CLOSE }
+                DialogAction = new LexV2DialogAction  { Type = DialogActionClose }
             },
             Messages = new List<LexV2Message>
             {
                 new()
                 {
-                    ContentType = MESSAGE_CONTENT_TYPE,
+                    ContentType = MessageContentType,
                     Content = responseMessage
                 }
             }
